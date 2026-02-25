@@ -61,6 +61,9 @@ Structure folder :
 │   └── helpers.ts
 │
 ├── shared/
+│   ├── hooks/
+│   │   └── useDebounce.ts
+│   │
 │   ├── constants.ts
 │   └── types.ts
 │

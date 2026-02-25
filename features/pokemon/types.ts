@@ -12,4 +12,11 @@ export interface GetPokemonsResponse {
 export interface GetPokemonVariables {
  limit: number;
  offset: number;
+ search?: string;
+}
+
+export interface UsePokemonListParams {
+ limit: number;
+ offset: number;
+ search?: string;
 }

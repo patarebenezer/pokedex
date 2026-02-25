@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Providers from "@/app/providers";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
  title: "PokeDex",
@@ -16,6 +17,7 @@ export default function RootLayout({
   <html lang='en' suppressHydrationWarning>
    <body>
     <Providers>{children}</Providers>
+    <Toaster richColors />
    </body>
   </html>
  );
