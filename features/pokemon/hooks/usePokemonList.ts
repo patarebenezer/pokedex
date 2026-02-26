@@ -11,6 +11,8 @@ export function usePokemonList(variables: GetPokemonsVariables) {
   GetPokemonsVariables
  >(GET_POKEMONS, {
   variables,
+  fetchPolicy: "cache-and-network",
+  notifyOnNetworkStatusChange: true,
  });
  return {
   pokemons: data?.pokemon ?? [],
