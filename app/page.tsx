@@ -26,6 +26,7 @@ import {
 import { Spinner } from "@/components/ui/spinner";
 import { toast } from "sonner";
 import { ArrowLeftIcon, ArrowRightIcon, Check, Plus } from "lucide-react";
+import { getPokemonImage } from "@/shared/getPokemonImage";
 
 const itemsOption = [
  { value: "id", label: "ID" },
@@ -216,7 +217,7 @@ export default function Home() {
              </p>
             </div>
             <Image
-             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+             src={getPokemonImage(pokemon.id)}
              alt={pokemon.name}
              width={120}
              height={120}
@@ -344,7 +345,7 @@ export default function Home() {
            {pokemon.name}
           </h2>
           <Image
-           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+           src={getPokemonImage(pokemon.id)}
            alt={pokemon.name}
            width={120}
            height={120}
