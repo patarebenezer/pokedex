@@ -6,5 +6,18 @@ export const apolloClient = new ApolloClient({
    process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT ||
    "https://graphql.pokeapi.co/v1beta2",
  }),
- cache: new InMemoryCache(),
+ cache: new InMemoryCache({
+  typePolicies: {
+   Query: {
+    fields: {
+     pokemon: {
+      keyArgs: ["where", "order_by"],
+      merge(existing = [], incoming) {
+       return incoming;
+      },
+     },
+    },
+   },
+  },
+ }),
 });
