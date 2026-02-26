@@ -9,14 +9,22 @@ export interface GetPokemonsResponse {
  pokemon: Pokemon[];
 }
 
-export interface GetPokemonVariables {
+export interface GetPokemonsVariables {
  limit: number;
  offset: number;
- search?: string;
+ where?: Record<string, unknown>;
+ order_by?: Record<string, "asc" | "desc">[];
 }
 
-export interface UsePokemonListParams {
- limit: number;
- offset: number;
- search?: string;
+export interface UsePokemonQueryStateOptions {
+ initialLimit?: number;
+}
+
+export interface PokemonType {
+ id: number;
+ name: string;
+}
+
+export interface GetPokemonTypesResponse {
+ type: PokemonType[];
 }
