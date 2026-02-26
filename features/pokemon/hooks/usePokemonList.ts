@@ -1,29 +1,20 @@
+import { useQuery } from "@apollo/client/react";
 import { GET_POKEMONS } from "@/features/pokemon/graphql/queries";
 import {
  GetPokemonsResponse,
- GetPokemonVariables,
- UsePokemonListParams,
+ GetPokemonsVariables,
 } from "@/features/pokemon/types";
-import { useQuery } from "@apollo/client/react";
 
-export function usePokemonList({
- limit,
- offset,
- search,
-}: UsePokemonListParams) {
- const query = useQuery<GetPokemonsResponse, GetPokemonVariables>(
-  GET_POKEMONS,
-  {
-   variables: {
-    limit,
-    offset,
-    search: search ? `%${search}%` : "%%",
-   },
-  },
- );
+export function usePokemonList(variables: GetPokemonsVariables) {
+ const { data, loading, error } = useQuery<
+  GetPokemonsResponse,
+  GetPokemonsVariables
+ >(GET_POKEMONS, {
+  variables,
+ });
  return {
-  pokemons: query.data?.pokemon ?? [],
-  loading: query.loading,
-  error: query.error,
+  pokemons: data?.pokemon ?? [],
+  loading: loading,
+  error: error,
  };
 }
