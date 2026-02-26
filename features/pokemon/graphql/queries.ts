@@ -24,3 +24,47 @@ export const GET_POKEMON_TYPES = gql`
   }
  }
 `;
+
+export const GET_POKEMON_DETAIL = gql`
+ query GetPokemonDetail($id: Int!) {
+  pokemon(where: { id: { _eq: $id } }) {
+   id
+   name
+   height
+   weight
+   pokemontypes {
+    type {
+     name
+    }
+   }
+   pokemonstats {
+    base_stat
+    stat {
+     name
+    }
+   }
+  }
+ }
+`;
+
+export const GET_POKEMON_COMPARE = gql`
+ query GetPokemonCompare($ids: [Int!]!) {
+  pokemon(where: { id: { _in: $ids } }) {
+   id
+   name
+   height
+   weight
+   pokemontypes {
+    type {
+     name
+    }
+   }
+   pokemonstats {
+    base_stat
+    stat {
+     name
+    }
+   }
+  }
+ }
+`;

@@ -41,6 +41,8 @@ Structure folder :
 │       ├── hooks/
 │       │   ├── usePokemonList.ts
 │       │   └── usePokemonCompare.ts
+│       │   └── usePokemonQueryState.ts
+│       │   └── usePokemonTypes.ts
 │       │
 │       ├── types.ts
 │       └── utils.ts

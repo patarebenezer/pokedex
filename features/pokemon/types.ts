@@ -3,6 +3,15 @@ export interface Pokemon {
  name: string;
  height: number;
  weight: number;
+ stats?: PokemonStat[];
+ pokemonstats?: PokemonStat[];
+}
+
+interface PokemonStat {
+ base_stat: number;
+ stat: {
+  name: string;
+ };
 }
 
 export interface GetPokemonsResponse {
@@ -27,4 +36,20 @@ export interface PokemonType {
 
 export interface GetPokemonTypesResponse {
  type: PokemonType[];
+}
+
+export interface PokemonDetailResponse {
+ pokemon_by_pk: {
+  id: number;
+  name: string;
+  height: number;
+  weight: number;
+  pokemontypes: {
+   type: { name: string };
+  }[];
+  pokemonstats: {
+   base_stat: number;
+   stat: { name: string };
+  }[];
+ };
 }
