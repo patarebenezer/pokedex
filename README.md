@@ -12,7 +12,6 @@ and **Apollo GraphQL**.
 - ↕️ Sort by ID, Name, Height, or Weight
 - 📄 Pagination-based navigation
 - ⚔️ Compare up to 2 Pokémon side-by-side
-- 🎨 Stat highlighting (higher stat = green, lower = red)
 - 🔔 Toast notifications for errors and empty results
 
 ---
@@ -82,8 +81,6 @@ This improves:
 
 ## 📁 Project Structure
 
-    ```
-
 ├── app/
 │ ├── components/
 │ ├── CompareModal.tsx
@@ -132,9 +129,7 @@ This improves:
 └── styles/
 └── globals.css
 
-````
-
-------------------------------------------------------------------------
+---
 
 ## 🧩 Key Engineering Decisions
 
@@ -142,24 +137,24 @@ This improves:
 
 `usePokemonQueryState` centralizes:
 
--   Search
--   Sorting
--   Filtering
--   Pagination
--   Query variable building
+- Search
+- Sorting
+- Filtering
+- Pagination
+- Query variable building
 
 UI components only describe intent --- they don't mutate arrays
 directly.
 
-------------------------------------------------------------------------
+---
 
 ### 2️⃣ Encapsulated Type Toggle
 
 Instead of manipulating arrays in components, we expose:
 
-``` ts
+```ts
 toggleType(type: string)
-````
+```
 
 This keeps mutation logic inside the hook layer.
 
