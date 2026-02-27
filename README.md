@@ -81,55 +81,55 @@ This improves:
 
 ## 📁 Project Structure
 
+```
 ├── app/
-│ ├── components/
-│ ├── CompareModal.tsx
-│ ├── Modal.tsx
-│ └── Pagination.tsx
-│ ├── layout.tsx
-│ ├── page.tsx
-│ └── providers.tsx
+│   └── components/
+│       ├── CompareModal.tsx
+│       ├── Modal.tsx
+│       └── Pagination.tsx
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── providers.tsx
 │
 ├── features/
-│ └── pokemon/
-│ ├── components/
-│ │ ├── PokemonCard.tsx
-│ │ ├── PokemonFilters.tsx
-│ │ ├── PokemonFloatingCompare.tsx
-│ │ ├── PokemonImage.tsx
-│ │ └── PokemonStats.tsx
-│ │
-│ ├── graphql/
-│ │ └── queries.ts
-│ │
-│ ├── hooks/
-│ │ └── usePokemonCompare.ts
-│ │ ├── usePokemonDetail.ts
-│ │ ├── usePokemonList.ts
-│ │ └── usePokemonQueryState.ts
-│ │ └── usePokemonTypes.ts
-│ │
-│ └── types.ts
+│   └── pokemon/
+│       ├── components/
+│       │   ├── PokemonCard.tsx
+│       │   ├── PokemonFilters.tsx
+│       │   ├── PokemonFloatingCompare.tsx
+│       │   ├── PokemonImage.tsx
+│       │   └── PokemonStats.tsx
+│       │
+│       ├── graphql/
+│       │   └── queries.ts
+│       │
+│       ├── hooks/
+│       │   └── usePokemonCompare.ts
+│       │   ├── usePokemonDetail.ts
+│       │   ├── usePokemonList.ts
+│       │   └── usePokemonQueryState.ts
+│       │   └── usePokemonTypes.ts
+│       │
+│       └── types.ts
 │
 ├── components/
-│ └── ui/
-│ └── ...
+│   └── ui/
+│       └── ...
 │
 ├── lib/
-│ ├── apollo-client.ts
-│ └── utils.ts
+│   ├── apollo-client.ts
+│   └── utils.ts
 │
 ├── shared/
-│ ├── hooks/
-│ │ └── useDebounce.ts
-│ │
-│ ├── getPokemonImage.ts
-│ └── constant.ts
+│   ├── hooks/
+│   │   └── useDebounce.ts
+│   │
+│   ├── getPokemonImage.ts
+│   └── constant.ts
 │
 └── styles/
-└── globals.css
-
----
+    └── globals.css
+```
 
 ## 🧩 Key Engineering Decisions
 
