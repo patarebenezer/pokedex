@@ -1,5 +1,5 @@
-import { CompareFloatingBarProps } from "@/features/types";
 import { Button } from "@/components/ui/button";
+import { CompareFloatingBarProps } from "@/features/pokemon/types";
 import { toast } from "sonner";
 
 export default function PokemonFloatingCompare({
