@@ -1,0 +1,2 @@
+NEXT_PUBLIC_GRAPHQL_URL=https://graphql.pokeapi.co/v1beta2
+NEXT_PUBLIC_POKEMON_IMAGE_URL=https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork

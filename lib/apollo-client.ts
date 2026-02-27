@@ -12,7 +12,7 @@ export const apolloClient = new ApolloClient({
     fields: {
      pokemon: {
       keyArgs: ["where", "order_by"],
-      merge(existing = [], incoming) {
+      merge(_existing, incoming) {
        return incoming;
       },
      },

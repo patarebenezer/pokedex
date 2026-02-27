@@ -14,7 +14,10 @@ export function usePokemonQueryState(options?: UsePokemonQueryStateOptions) {
  const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
  const [offset, setOffset] = useState<number>(0);
- const limit = options?.initialLimit ?? 10;
+ const limit = useMemo(
+  () => options?.initialLimit ?? 10,
+  [options?.initialLimit],
+ );
 
  const updateSearch = (value: string) => {
   setSearch(value);
@@ -27,15 +30,24 @@ export function usePokemonQueryState(options?: UsePokemonQueryStateOptions) {
   setOffset(0);
  };
 
+ const toggleType = (type: string) => {
+  setSelectedTypes((prev) =>
+   prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type],
+  );
+  setOffset(0);
+ };
+
  const where = useMemo(() => {
   const conditions: Record<string, unknown>[] = [];
-  if (search) {
+
+  if (search.trim()) {
    conditions.push({
     name: {
      _ilike: `%${search}%`,
     },
    });
   }
+
   if (selectedTypes.length > 0) {
    conditions.push({
     pokemontypes: {
@@ -50,13 +62,8 @@ export function usePokemonQueryState(options?: UsePokemonQueryStateOptions) {
 
   if (conditions.length === 0) return {};
 
-  return { _and: conditions };
+  return conditions.length > 0 ? { _and: conditions } : {};
  }, [search, selectedTypes]);
-
- const updateTypes = (types: string[]) => {
-  setSelectedTypes(types);
-  setOffset(0);
- };
 
  const order_by = useMemo<GetPokemonsVariables["order_by"]>(() => {
   return [
@@ -77,7 +84,7 @@ export function usePokemonQueryState(options?: UsePokemonQueryStateOptions) {
   selectedTypes,
   updateSearch,
   updateSort,
-  updateTypes,
+  toggleType,
   nextPage: () => setOffset((prev) => prev + limit),
   prevPage: () => setOffset((prev) => Math.max(prev - limit, 0)),
  };

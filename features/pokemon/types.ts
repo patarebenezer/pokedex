@@ -53,3 +53,31 @@ export interface PokemonDetailResponse {
   }[];
  };
 }
+
+export interface PokemonCardProps {
+ pokemon: Pokemon;
+ isSelected: boolean;
+ isMaxSelected: boolean;
+ onToggle: (id: number) => void;
+}
+
+export interface CompareFloatingBarProps {
+ selectedIds: number[];
+ onToggle: (id: number) => void;
+ onCompare: () => void;
+}
+
+export interface PokemonFiltersProps {
+ selectedTypes: string[];
+ toggleType: (type: string) => void;
+ sortField: string;
+ sortDirection: "asc" | "desc";
+ updateSort: (value: string, direction: "asc" | "desc") => void;
+}
+
+export interface CompareModalProps {
+ isOpen: boolean;
+ onClose: () => void;
+ pokemons: Pokemon[];
+ loading: boolean;
+}
